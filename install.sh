@@ -4,6 +4,7 @@ set -e  # Para parar o script em caso de erro
 
 # Desativar swap
 sudo swapoff -a
+sudo sed -i '/ swap / s/^/#/' /etc/fstab
 
 # Configurar módulos do kernel
 cat <<EOF | sudo tee /etc/modules-load.d/k8s.conf
